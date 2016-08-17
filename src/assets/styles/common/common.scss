@@ -1,0 +1,57 @@
+// -- main start--
+// - profile start -
+.profile-pic {
+    width: 35%;
+    float: left;
+}
+
+.profile-img {
+    width: 70%;
+    background: #fff;
+    margin-left: 15%;
+    z-index: 1000;
+    position: inherit;
+    margin-top: 20px;
+    border: 1px solid rgba(52, 73, 94, 0.44);
+    padding: 4px;
+}
+
+.profile-info {
+    padding: 25px 10px 10px;
+    width: 65%;
+    float: left;
+    span {
+        font-size: 13px;
+        line-height: 30px;
+        color: #BAB8B8;
+    }
+    h2 {
+        font-size: 14px;
+        color: $main-left-color;
+        margin: 0;
+        font-weight: 300;
+    }
+}
+
+.profile.img-2 {
+    text-align: center;
+    .profile-pic {
+        width: 100%;
+        .img-circle.profile-img {
+            width: 50%;
+            margin: 10px 0 0;
+        }
+        .profile-info {
+            padding: 15px 10px 0;
+            width: 100%;
+            margin-bottom: 10px;
+            float: left;
+        }
+    }
+}
+
+// - profile end -
+
+
+// - side menu end -
+// -- main end --

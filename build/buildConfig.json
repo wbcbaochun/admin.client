@@ -1,0 +1,11 @@
+{
+	"dev": {
+		"API.BASE": "http://localhost:8000"
+	},
+	"test": {
+		"API.BASE": "http://localhost:9005"
+	},
+	"production": {
+
+	}
+}

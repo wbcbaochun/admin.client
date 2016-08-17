@@ -1,0 +1,29 @@
+{
+  "name": "blank-admin",
+  "description": "",
+  "main": "",
+  "authors": [
+    "wangbc@infogreat.cn <wangbc@infogreat.cn>"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "Font-Awesome#^4.6.3",
+    "bootstrap-sass": "^3.3.6",
+    "animate.css": "^3.5.2",
+    "angular-growl-v2": "^0.7.9"
+  }
+}

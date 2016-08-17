@@ -1,0 +1,72 @@
+/** login **/
+.login_wrapper {
+    right: 0px;
+    margin: 0px auto;
+    margin-top: 5%;
+    max-width: 350px;
+    position: relative;
+    color: $brand-primary;
+}
+
+.login_form {
+    top: 0px;
+    width: 100%;
+    z-index: 22;
+    .form-horizontal .form-group {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .submit {
+        margin: 10px 0 20px 0;
+    }
+}
+
+.login_content {
+    margin: 0 auto;
+    padding: 25px 0 0;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    min-width: 280px;
+}
+
+.login_content a,
+.login_content .btn-default:hover {
+    text-decoration: none;
+}
+
+.login_content h1 {
+    letter-spacing: -0.05em;
+    line-height: 20px;
+    margin: 10px 0 30px;
+}
+
+.login_content h1:before,
+.login_content h1:after {
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 10px;
+    width: 27%;
+}
+
+.login_content h1:after {
+    background: $brand-primary;
+    background: linear-gradient(to left, $brand-primary 0%, rgba(255, 255, 255, 1) 100%);
+    right: 0;
+}
+
+.login_content h1:before {
+    background: $brand-primary;
+    background: linear-gradient(to right, $brand-primary 0%, rgba(255, 255, 255, 1) 100%);
+    left: 0;
+}
+
+.login_content form {
+    margin: 20px 0;
+    position: relative
+}
+
+.login_footer {
+    animation-delay: 1s;
+}

@@ -1,0 +1,27 @@
+<div class="login_wrapper">
+    <div class="form login_form animated fadeInDown">
+        <section class="login_content">
+            <form class="form-horizontal" ng-submit="vm.login()">
+                <h1>管理员登陆</h1>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" required="" ng-model="vm.user.name"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" required="" ng-model="vm.user.password" />
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-lg">登 陆</button>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </section>
+    </div>
+    <div class="login_footer text-center animated rotateIn">
+        <div>
+            <h2>
+                <i class="fa fa-paw"></i> XXX 管理系统
+            </h2>
+            <p>©2016 All Rights Reserved. </p>
+        </div>
+    </div>
+</div>

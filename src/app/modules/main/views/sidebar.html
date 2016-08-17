@@ -1,0 +1,54 @@
+<div class="scroll-view" ng-controller="MainSidebarCtrl as vm">
+    <div class="navbar main-left-title">
+        <a href="index.html" class="site-title"><i class="fa fa-paw"></i> <span>XX管理系统</span></a>
+    </div>
+    <div class="clearfix"></div>
+    <!-- menu profile quick info -->
+    <div class="profile">
+        <div class="profile-pic">
+            <img src="images/tmp/img.jpg" alt="..." class="img-circle profile-img">
+        </div>
+        <div class="profile-info">
+            <span>欢迎,</span>
+            <h2>管理员小李</h2>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- /menu profile quick info -->
+    <br />
+    <!-- sidebar menu -->
+    <div id="sidebar-menu" class="main-menu-side hidden-print main-menu">
+        <div class="menu-section">
+            <h3>菜单组1</h3>
+            <ul class="nav side-menu">
+                <li class="active">
+                    <a ng-click="vm.clickMenu('menu1-1')">
+                        <i class="fa fa-home"></i> 用户管理 <span class="fa fa-chevron-down"></span>
+                    </a>
+                    <ul class="nav child-menu" uib-collapse="!vm.isOpen('menu1-1')">
+                        <li><a ui-sref="main.user.list">用户检索</a></li>
+                        <li><a ui-sref="main.user.new">用户添加</a></li>                       
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-section">
+            <h3>菜单组2</h3>
+            <ul class="nav side-menu">
+                <li>
+                    <a ng-click="vm.clickMenu('menu1-2')">
+                        <i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span>
+                    </a>
+                    <ul class="nav child-menu" uib-collapse="!vm.isOpen('menu1-2')">
+                        <li><a href="e_commerce.html">E-commerce</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="project_detail.html">Project Detail</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /sidebar menu -->
+</div>
