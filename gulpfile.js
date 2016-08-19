@@ -21,6 +21,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     inject = require('gulp-inject'),
     mainBowerFiles = require('gulp-main-bower-files'),
+    gulpFilter = require('gulp-filter'),
     browserSync = require('browser-sync').create(),
     restEmulator = require('gulp-rest-emulator'),
     templateCache = require('gulp-angular-templatecache'),
@@ -138,6 +139,25 @@ function bundle() {
         .pipe(browserSync.stream());
 }
 
+
+gulp.task('lib', function() {
+    let filterJS = gulpFilter('**/*.js', { restore: true });
+    return gulp.src('./bower.json')
+        .pipe(mainBowerFiles({
+            overrides: {
+                plupload: {
+                    main: [
+                        './js/plupload.dev.js',
+                        './js/moxie.js'
+                    ]
+                }
+            }
+        }))
+        .pipe(filterJS)
+        .pipe(filterJS.restore)
+        .pipe(gulp.dest(dest + '/lib'));
+});
+
 gulp.task('js-vendor', function() {
     var b = browserify({
         debug: !production
@@ -146,7 +166,7 @@ gulp.task('js-vendor', function() {
     // do the similar thing, but for npm-managed modules.
     // resolve path using 'resolve' module
     getNPMPackageIds().forEach(function(id) {
-        b.require(nodeResolve.sync(id), { expose: id });
+        b.require(id, { expose: id });
     });
 
     var stream = b
@@ -163,7 +183,6 @@ gulp.task('js-vendor', function() {
 
     return stream;
 });
-
 
 gulp.task('js-app', ['view'], bundle);
 
@@ -283,6 +302,7 @@ function buildAll() {
     runSequence('clean', [
         'index',
         'image',
+        'lib',
         'js-vendor',
         'jsHint',
         'js-app',
@@ -327,5 +347,8 @@ function getNPMPackageIds() {
     } catch (e) {
         // does not have a package.json manifest
     }
-    return _.keys(packageManifest.dependencies) || [];
+
+    let dependencies = _.keys(packageManifest.dependencies) || [];
+    let bowerDependencies = _.keys(packageManifest.browser) || [];
+    return _.concat(dependencies, bowerDependencies);
 }
