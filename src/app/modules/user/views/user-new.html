@@ -27,14 +27,14 @@
                 <div class="form-group">
                     <label for="mail" class="control-label col-md-3 col-sm-3 col-xs-12">邮箱</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="mail" id="mail" name="mail" class="form-control col-md-7 col-xs-12" ng-model="vm.model.mail" validator="email" valid-method="submit">
+                        <input type="mail" id="mail" name="mail" class="form-control col-md-7 col-xs-12" ng-model="vm.model.mail" validator="required, email" valid-method="submit">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="mail" class="control-label col-md-3 col-sm-3 col-xs-12">头像</label>
                     <div class="col-sm-9 col-xs-12">
                         <button id="upload-btn" type="button" class="btn btn-info x_btn" ng-click="vm.upload()">上传</button>
-                        <img class="img-thumbnail" ng-src="{{vm.model.photo}}?imageView2/2/w/150">
+                        <img class="img-thumbnail" ng-src="{{vm.uploader.getFile()}}?imageView2/2/w/150">
                     </div>
                 </div>                
                 <div class="ln_solid"></div>
@@ -42,7 +42,6 @@
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <button type="submit" class="btn btn-primary x_btn" ng-click="vm.save()" validation-submit="userNewForm">确定</button>
                         <button type="button" class="btn btn-default x_btn" ng-click="vm.back()">取消</button>
-                        
                     </div>
                 </div>
             </form>
