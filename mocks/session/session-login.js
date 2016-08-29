@@ -10,7 +10,11 @@ module.exports = {
                 result: {
                     id: 1,
                     userName: '管理员小李',
-                    userImg: '/tmp/img.jpg'
+                    userImg: '/tmp/img.jpg',
+                    permissions: [
+                        'user.view', 
+                        'user.edit'
+                    ]
                 }
             },
             headers: {

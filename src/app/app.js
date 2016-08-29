@@ -14,6 +14,7 @@ require('ng-csv');
 // app modules
 require('./common/constants');
 require('./common/services');
+require('./common/directives');
 require('./common/filters');
 require('./common/controllers');
 require('./modules');
@@ -35,6 +36,7 @@ const requires = [
 	'app.constants',
 	'app.controllers',
 	'app.services',
+	'app.directives',
 	'app.filters',
 	'app.modules'
 ];

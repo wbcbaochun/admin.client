@@ -65,7 +65,9 @@
         <div class="x_title">
             <h4>检索结果 
                 <small>检索到的用户列表
-                    <a class="btn btn-success pull-right x_btn" ui-sref="main.user.new"><i class="fa fa-plus" aria-hidden="true"></i>新增</a>
+                    <a class="btn btn-success pull-right x_btn" ui-sref="main.user.new" data-permissions="user.edit">
+                        <i class="fa fa-plus" aria-hidden="true"></i>新增
+                    </a>
                 </small>
             </h4>
         </div>
@@ -84,11 +86,11 @@
                             <i class="fa fa-info" aria-hidden="true"></i>
                             详情
                         </a>
-                        <a class="btn btn-success x_btn" ui-sref="main.user.edit({id: row.id})" ng-disabled="row.deletedAt">
+                        <a class="btn btn-success x_btn" ui-sref="main.user.edit({id: row.id})" ng-disabled="row.deletedAt" data-permissions="user.edit">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                             编辑
                         </a>     
-                        <a class="btn btn-danger x_btn" ui-sref="main.user.delete({id: row.id})" ng-disabled="row.deletedAt">
+                        <a class="btn btn-danger x_btn" ui-sref="main.user.delete({id: row.id})" ng-disabled="row.deletedAt" data-permissions="user.edit">
                             <i class="fa fa-remove" aria-hidden="true"></i>
                             删除
                         </a>                       

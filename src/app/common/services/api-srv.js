@@ -26,7 +26,7 @@ function ApiSrv($q, $http, $httpParamSerializer, AppConfigs, MessageSrv) {
                     localStorage.setItem(tokenKey, accessToken);
                 }
 
-                let isJson = headers('content-type').match(/application\/json/);
+                let isJson = headers('content-type').match(/json/);
                 if (isJson) {
                     if (data.status === 0) {
                         // result ok
