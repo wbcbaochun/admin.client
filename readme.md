@@ -34,4 +34,9 @@
 
 ## 本地浏览器测试 + api ##
     gulp test
-	
+
+# 常用组件 #
+1. 上传组件 
+	1. [七牛JS SDK](http://developer.qiniu.com/code/v6/sdk/javascript.html)
+
+	1. [plupload](http://www.plupload.com/)

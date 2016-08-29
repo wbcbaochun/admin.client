@@ -23,6 +23,7 @@ var gulp = require('gulp'),
     mainBowerFiles = require('gulp-main-bower-files'),
     gulpFilter = require('gulp-filter'),
     browserSync = require('browser-sync').create(),
+    proxy = require('proxy-middleware'),
     restEmulator = require('gulp-rest-emulator'),
     templateCache = require('gulp-angular-templatecache'),
     replace = require('gulp-replace'),
@@ -229,6 +230,7 @@ gulp.task('css-vendor', function() {
 gulp.task('browser-sync', function() {
     const DEFAULT_FILE = 'index.html';
     const ASSET_EXTENSION_REGEX = new RegExp(`\\b(?!\\?)\\.(${assetExtensions.join('|')})\\b(?!\\.)`, 'i');
+    
     browserSync.init({
         browser: ["chrome"],
         server: {

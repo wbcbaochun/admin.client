@@ -22,7 +22,7 @@ function UserNewCtrl($controller, $scope, UploadSrv) {
 
 
     // 上传组件
-    uploader = UploadSrv.createUploader();
+    uploader = UploadSrv.createImageUploader();
     vm.uploader = uploader;
 }
 

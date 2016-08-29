@@ -11,18 +11,24 @@
         <div class="x_content">
             <form id="user-new-form" class="form-horizontal">
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">用户ID</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">用户ID：</label>
                     <div class="col-md-6 col-sm-6 col-xs-12 x_text" ng-bind="vm.model.id">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">用户名</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">用户名：</label>
                     <div class="col-md-6 col-sm-6 col-xs-12 x_text" ng-bind="vm.model.name">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="mail" class="control-label col-md-3 col-sm-3 col-xs-12">邮箱</label>
+                    <label for="mail" class="control-label col-md-3 col-sm-3 col-xs-12">邮箱：</label>
                     <div class="col-md-6 col-sm-6 col-xs-12 x_text" ng-bind="vm.model.mail">
+                    </div>
+                </div>                
+                <div class="form-group">
+                    <label for="photo" class="control-label col-md-3 col-sm-3 col-xs-12">头像：</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12 x_text">
+                        <img class="img-responsive" ng-src="{{vm.model.photo | imgView : 150}}">
                     </div>
                 </div>
                 <div class="ln_solid"></div>

@@ -9,15 +9,15 @@ var _ = require('lodash');
  * @param {[Object]} $rootScope
  * @param {[Object]} AppConfigs [APP的配置项]
  */
-function UploadSrv($rootScope, AppConfigs) {
+function UploadSrv($rootScope, AppConfigs, MessageSrv) {
     'ngInject';
 
 
-  	/**
-  	 * 创建上传组件
-  	 * @param  {Object} opts [参考plupload的上传opts]
-  	 * @return {uploader}      [参考七牛的uploader]
-  	 */
+    /**
+     * 创建上传组件
+     * @param  {Object} opts [参考plupload的上传opts]
+     * @return {uploader}      [参考七牛的uploader]
+     */
     function createUploader(opts) {
 
         function _defaultFileUploaded(up, file, info) {
@@ -29,12 +29,12 @@ function UploadSrv($rootScope, AppConfigs) {
         }
 
         function _getFile() {
-        	return _.last(this.uploadedFiles);
+            return _.last(this.uploadedFiles);
         }
 
         function _getFiles() {
-        	return this.uploadedFiles;
-        }        
+            return this.uploadedFiles;
+        }
 
 
         const defaultUpOpts = {
@@ -70,13 +70,14 @@ function UploadSrv($rootScope, AppConfigs) {
                 'FileUploaded': _defaultFileUploaded,
                 'Error': function(up, err, errTip) {
                     //上传出错时,处理相关的事情
+                    MessageSrv.error(err.message);
                 },
                 'UploadComplete': function() {
-                    //队列文件处理完毕后,处理相关的事情
-                }
-                // 'Key': function(up, file) {
-                //     // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
-                //     // 该配置必须要在 unique_names: false , save_key: false 时才生效
+                        //队列文件处理完毕后,处理相关的事情
+                    }
+                    // 'Key': function(up, file) {
+                    //     // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+                    //     // 该配置必须要在 unique_names: false , save_key: false 时才生效
 
                 //     var key = "";
                 //     // do something with key here
@@ -84,7 +85,7 @@ function UploadSrv($rootScope, AppConfigs) {
                 // }
             }
         };
-        
+
 
         opts = opts || {};
         opts = _.assign(defaultUpOpts, opts);
@@ -95,11 +96,22 @@ function UploadSrv($rootScope, AppConfigs) {
         uploader._getFiles = _getFiles.bind(uploader);
 
         return uploader;
-       
+
     }
 
-    return  {
-    	createUploader
+    function createImageUploader(opts) {
+        opts = opts || {};
+        opts.filters = {
+            mime_types: [
+                { title: '请选择图片', extensions: 'jpg,gif,png'}
+            ]
+        };
+        return createUploader(opts);
+    }
+
+    return {
+        createUploader,
+        createImageUploader
     };
 }
 

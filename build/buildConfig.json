@@ -1,9 +1,13 @@
 {
 	"dev": {
-		"API.BASE": "http://localhost:8000"
+		"ENV": "dev",
+		"API.BASE": "http://localhost:8000",
+		"UPLOAD_DOMAIN": "http://localhost:8000/api/file/upload"
 	},
 	"test": {
-		"API.BASE": "http://localhost:9005"
+		"ENV": "test",
+		"API.BASE": "http://localhost:9005",
+		"UPLOAD_DOMAIN": "http://oc3g3d3gr.bkt.clouddn.com/"
 	},
 	"production": {
 

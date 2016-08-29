@@ -9,7 +9,7 @@ var MessageList = {
 	'error.maxlength': '超过了最大长度。',
 	'error.alphaNumber': '请输入英文或数字。',	
 	'error.fileUpload': '文件上传时发生错误，请重新上传。',
-	'error.fileUpload.suffixs': '上传文件的格式错误。',
+	'File extension error.': '上传文件的格式错误。',
 	'confirm.update': '确定要更新吗？',
 	'confirm.regist': '确定要做成吗？',
 	'confirm.save': '确定要保存吗？',

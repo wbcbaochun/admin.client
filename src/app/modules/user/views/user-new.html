@@ -1,4 +1,4 @@
-<div id="user-new-pg">
+<div id="user-new-pg" class="user-pg">
     <div class="page-title">
         <div class="title_left">
             <h3>新增用户</h3>
@@ -11,27 +11,27 @@
         <div class="x_content">
             <form name="userNewForm" class="form-horizontal" novalidate>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">用户名 <span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">用户名： <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" id="name" name="name" class="form-control col-md-7 col-xs-12" placeholder="请输入10位以内的英数字" max-length="10" ng-model="vm.model.name" validator="required, alphaNumber" valid-method="submit">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">密码 <span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">密码： <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="password" id="password" name="password" required="required" class="form-control col-md-7 col-xs-12" placeholder="请输入不小于4位的密码" ng-model="vm.model.password" validator="required, minlength=4" valid-method="submit">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="mail" class="control-label col-md-3 col-sm-3 col-xs-12">邮箱</label>
+                    <label for="mail" class="control-label col-md-3 col-sm-3 col-xs-12">邮箱：</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="mail" id="mail" name="mail" class="form-control col-md-7 col-xs-12" ng-model="vm.model.mail" validator="required, email" valid-method="submit">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="mail" class="control-label col-md-3 col-sm-3 col-xs-12">头像</label>
+                    <label for="mail" class="control-label col-md-3 col-sm-3 col-xs-12">头像：</label>
                     <div class="col-sm-9 col-xs-12">
                         <button id="upload-btn" type="button" class="btn btn-info x_btn" ng-click="vm.upload()">上传</button>
                         <img class="img-thumbnail" ng-src="{{vm.uploader.getFile()}}?imageView2/2/w/150">
