@@ -8,7 +8,7 @@ function ImgViewFilter() {
 
 	    let paramStr = '';
 	    if (width) {
-	    	paramStr = `?imageView2/2/w/${width}`
+	    	paramStr = `?imageView2/2/w/${width}`;
 	    }
 
 	    return input + paramStr;
