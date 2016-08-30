@@ -41,9 +41,9 @@ var paths = {
     index: [src + 'index.html'],
     view: [src + 'app/modules/**/*.html'],
     image: [src + 'assets/images/**/*'],
-    style: [src + 'assets/styles/**/*.scss'],
+    style: [src + 'app/**/styles/*.scss'],
     styleApp: src + 'assets/styles/app.scss',
-    script: [src + 'app/**/*.js', src + 'assets/js/**/*.js'],
+    script: [src + 'app/**/*.js', src + 'base/**/*.js'],
     scriptApp: src + 'app/app.js',
     mock: ['./mocks/**/*.js']
 };
@@ -109,7 +109,7 @@ gulp.task('jsHint', function(done) {
 function bundle() {
     var bundler = browserify({
         entries: paths.scriptApp,
-        paths: [src + 'assets/scripts'],
+        paths: [src + 'base/scripts'],
         debug: !production,
     });
     bundler.transform(ngAnnotate);
