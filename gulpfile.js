@@ -189,7 +189,7 @@ gulp.task('js-app', ['view'], bundle);
 
 // 打包sass
 var compileSASS = function(filename, options) {
-    return gulp.src(paths.styleApp)
+    return gulp.src(paths.style)
         .pipe(sourcemaps.init())
         .pipe(sass(options).on('error', sass.logError))
         .pipe(autoprefixer())
