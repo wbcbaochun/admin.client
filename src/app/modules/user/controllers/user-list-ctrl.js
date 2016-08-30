@@ -3,7 +3,7 @@
  */
 'use strict';
 
-function UserListCtrl($controller, $q, ApiSrv) {
+function UserListCtrl($controller, ApiSrv) {
     'ngInject';
 
     // 扩展自list控制器基类
