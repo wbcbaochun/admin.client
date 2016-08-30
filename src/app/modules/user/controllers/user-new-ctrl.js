@@ -3,7 +3,7 @@
  */
 'use strict';
 
-function UserNewCtrl($controller, $scope, UploadSrv) {
+function UserNewCtrl($controller, UploadSrv) {
     'ngInject';
 
     let vm = this;
