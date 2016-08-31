@@ -13,7 +13,7 @@
    安装成功后请在cmd中输入python --version进行确认
 
 1. 全局安装 gulp
-	`npm install -gulp`
+	`npm install -g gulp`
 
 1. 全局安装 bower
 	`npm install -g bower`
