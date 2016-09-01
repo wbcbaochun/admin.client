@@ -41,7 +41,7 @@ var paths = {
     index: [src + 'index.html'],
     view: [src + 'app/modules/**/*.html'],
     image: [src + 'assets/images/**/*'],
-    style: [src + '**/styles/*.scss'],
+    style: [src + 'app/styles/app.scss'],
     script: [src + 'app/**/*.js', src + 'base/**/*.js'],
     scriptApp: src + 'app/app.js',
     mock: ['./mocks/**/*.js']
@@ -187,10 +187,16 @@ gulp.task('js-vendor', function() {
 gulp.task('js-app', ['view'], bundle);
 
 // 打包sass
-var compileSASS = function(filename, options) {
+var compileSASS = function(filename) {
+    let opts = {
+        includePaths: [src + 'app/modules']
+    };
+    if (production) {
+        opts.outputStyle = 'compressed';
+    }
     return gulp.src(paths.style)
         .pipe(sourcemaps.init())
-        .pipe(sass(options).on('error', sass.logError))
+        .pipe(sass(opts).on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(concat(filename))
         .pipe(sourcemaps.write('./'))
@@ -199,11 +205,7 @@ var compileSASS = function(filename, options) {
 };
 
 gulp.task('sass', function() {
-    return compileSASS('app.css', {});
-});
-
-gulp.task('sass-minify', function() {
-    return compileSASS('app.min.css', { outputStyle: 'compressed' });
+    return compileSASS('app.css');
 });
 
 // 打包css
@@ -229,7 +231,7 @@ gulp.task('css-vendor', function() {
 gulp.task('browser-sync', function() {
     const DEFAULT_FILE = 'index.html';
     const ASSET_EXTENSION_REGEX = new RegExp(`\\b(?!\\?)\\.(${assetExtensions.join('|')})\\b(?!\\.)`, 'i');
-    
+
     browserSync.init({
         browser: ["chrome"],
         server: {
@@ -309,7 +311,6 @@ function buildAll() {
         'js-app',
         'css-vendor',
         'sass',
-        'sass-minify',
         'fonts',
         'watch',
         'mock'

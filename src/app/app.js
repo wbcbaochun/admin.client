@@ -8,6 +8,7 @@ require('angular-sanitize');
 require('angular-growl-v2');
 require('angular-translate');
 require('angular-validation');
+require('angular-block-ui');
 require('ng-table');
 require('ng-csv');
 
@@ -30,6 +31,7 @@ const requires = [
 	'angular-growl',
 	'pascalprecht.translate',
 	'validation',
+	'blockUI',
 	'ngTable',
 	'ngCsv',
 	'templates',

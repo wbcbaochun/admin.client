@@ -15,7 +15,7 @@ function UserListCtrl($controller, ApiSrv) {
 
     // 取得CSV数据
     vm.getCsvData = function() {
-        return ApiSrv.exec('/user/download', vm.searchCondition);
+        return ApiSrv.exec('user/download', vm.searchCondition);
 	};
 }
 
