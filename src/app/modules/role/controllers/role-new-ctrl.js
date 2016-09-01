@@ -33,7 +33,7 @@ function RoleNewCtrl($controller, CodeList) {
             name: key,
             text: value,
             selected: false
-        }
+        };
     });
 }
 

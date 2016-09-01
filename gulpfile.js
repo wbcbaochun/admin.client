@@ -1,4 +1,6 @@
-var gulp = require('gulp'),
+'use strict';
+
+const gulp = require('gulp'),
     clean = require('gulp-clean'),
     gulpCopy = require('gulp-copy'),
     concat = require('gulp-concat'),
@@ -32,12 +34,12 @@ var gulp = require('gulp'),
     nodeResolve = require('resolve'),
     runSequence = require('run-sequence');
 
-var production = (process.env.NODE_ENV === 'production');
-var buildConfig = require('./build/buildConfig.json');
+const production = (process.env.NODE_ENV === 'production');
+const buildConfig = require('./build/buildConfig.json');
 
-var src = 'src/';
-var dest = 'dist/';
-var paths = {
+const src = 'src/';
+const dest = 'dist/';
+const paths = {
     index: [src + 'index.html'],
     view: [src + 'app/modules/**/*.html'],
     image: [src + 'assets/images/**/*'],
@@ -47,7 +49,7 @@ var paths = {
     scriptApp: src + 'app/app.js',
     mock: ['./mocks/**/*.js']
 };
-var assetExtensions = [
+const assetExtensions = [
     'js',
     'css',
     'png',
@@ -107,7 +109,7 @@ gulp.task('jsHint', function(done) {
 
 // 打包JS
 function bundle() {
-    var bundler = browserify({
+    let bundler = browserify({
         entries: paths.scriptApp,
         paths: [src + 'base/scripts'],
         debug: !production,
@@ -119,7 +121,7 @@ function bundle() {
         bundler.external(id);
     });
 
-    var stream = bundler
+    let stream = bundler
         .bundle()
         .pipe(source('app.js'));
 
@@ -160,7 +162,7 @@ gulp.task('lib', function() {
 });
 
 gulp.task('js-vendor', function() {
-    var b = browserify({
+    let b = browserify({
         debug: !production
     });
 
@@ -170,7 +172,7 @@ gulp.task('js-vendor', function() {
         b.require(id, { expose: id });
     });
 
-    var stream = b
+    let stream = b
         .bundle()
         .on('error', function(err) {
             // print the error (can replace with gulp-util)
@@ -188,7 +190,7 @@ gulp.task('js-vendor', function() {
 gulp.task('js-app', ['view'], bundle);
 
 // 打包sass
-var compileSASS = function(filename) {
+let compileSASS = function(filename) {
     let opts = {
         includePaths: [src + 'app/modules']
     };
@@ -239,7 +241,7 @@ gulp.task('browser-sync', function() {
             baseDir: './dist'
         },
         middleware: function(req, res, next) {
-            var fileHref = url.parse(req.url).href;
+            let fileHref = url.parse(req.url).href;
 
             if (!ASSET_EXTENSION_REGEX.test(fileHref)) {
                 req.url = '/' + DEFAULT_FILE;
@@ -262,7 +264,7 @@ gulp.task('fonts', function() {
 // mock server
 gulp.task('mock', function() {
     // Options not require
-    var options = {
+    let options = {
         port: 8000,
         root: ['./'],
         rewriteNotFound: false,
@@ -333,10 +335,10 @@ gulp.task('test', function(cb) {
 });
 
 function replaceBuildConfigs(stream) {
-    var env = process.env.NODE_ENV;
-    var envConfig = buildConfig[env];
+    let env = process.env.NODE_ENV;
+    let envConfig = buildConfig[env];
     _.forIn(envConfig, function(value, key) {
-        var replaceKey = '${' + key + '}';
+        let replaceKey = '${' + key + '}';
         stream = stream.pipe(replace(replaceKey, value));
     });
     return stream;
@@ -344,7 +346,7 @@ function replaceBuildConfigs(stream) {
 
 function getNPMPackageIds() {
     // read package.json and get dependencies' package ids
-    var packageManifest = {};
+    let packageManifest = {};
     try {
         packageManifest = require('./package.json');
     } catch (e) {
