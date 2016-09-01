@@ -7,6 +7,10 @@ body {
     color: $brand-primary;
 }
 
+input[type="radio"], input[type="checkbox"] {
+    margin-top: 1px;
+}
+
 // -- color --
 .blue {
     color: #3498DB;

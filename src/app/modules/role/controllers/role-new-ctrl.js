@@ -3,27 +3,38 @@
  */
 'use strict';
 
-function RoleNewCtrl($controller, UploadSrv) {
+const _ = require('lodash');
+
+function RoleNewCtrl($controller, CodeList) {
     'ngInject';
 
     let vm = this;
-    let uploader;
 
+    // 更新前处理
     function beforeSave() {
-        let photo = uploader.getFile() || null;
-        vm.model.photo = photo;
+        // 编辑权限列表成为字符串数组形式
+        let permissions = _
+            .chain(vm.permissionList)
+            .filter(o => o.selected)
+            .map(o => o.name);
+        vm.model.permissions = permissions;
     }
-    
+
     let ctrlOpts = {
-            modelName: 'role',
-            beforeSave: beforeSave
-        };
+        modelName: 'role',
+        beforeSave: beforeSave
+    };
+
     angular.extend(this, $controller('BaseCrudCtrl', { vm: vm, ctrlOpts }));
 
-
-    // 上传组件
-    uploader = UploadSrv.createImageUploader();
-    vm.uploader = uploader;
+    // 编辑权限列表成为画面表示形式
+    vm.permissionList = _.map(CodeList.permission, function(value, key) {
+        return {
+            name: key,
+            text: value,
+            selected: false
+        }
+    });
 }
 
 module.exports = {
