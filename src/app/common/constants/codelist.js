@@ -6,7 +6,9 @@ var CodeList = {
     },
     'permission': {
     	'user.view': '用户查看',
-    	'user.edit': '用户编辑'
+    	'user.edit': '用户编辑',
+        'role.view': '角色查看',
+        'role.edit': '角色编辑'
     }
 };
 
