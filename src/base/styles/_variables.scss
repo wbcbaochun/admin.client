@@ -1,0 +1,25 @@
+// -- bootstrap start --
+$font-size-base: 13px;
+$brand-primary: #5A738E;
+$brand-success: rgba(38,185,154,0.88);
+$brand-info:    rgba(52,152,219,0.88);
+$brand-warning: rgba(243,156,18,0.88);
+$brand-danger: rgba(231,76,60,0.88);
+$body-bg: #F7F7F7;
+$input-border-focus: lighten($brand-primary, 20%);
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+$bootstrap-sass-asset-helper: false;
+// -- bootstrap end --
+// 
+// -- variables start --
+// -- main --
+$main-left-color-bg: darken($brand-primary, 20%);
+$main-left-color: lighten($main-left-color-bg, 80%);
+$side-menu-color: lighten($main-left-color-bg, 60%);
+$header-color-bg: #EDEDED;
+$sidebar-width: 230px;
+// -- button --
+$button-min-width-action: 100px;
+$line-height-default: 20px;
+
+// -- variables end --

@@ -1,0 +1,8 @@
+:focus {
+    outline: none;
+}
+
+a:focus {
+    outline: none;
+    outline-offset: -2px;
+}

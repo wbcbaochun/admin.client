@@ -1,0 +1,41 @@
+<div id="role-list-pg">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>角色管理</h3>
+        </div>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h4>角色一览 
+                <small>全部的角色
+                    <a class="btn btn-success pull-right x_btn" ui-sref="main.role.new" data-permissions="role.edit">
+                        <i class="fa fa-plus" aria-hidden="true"></i>新增
+                    </a>
+                </small>
+            </h4>
+        </div>
+        <div class="x_content">
+            <table ng-table="vm.tableParams" class="table table-bordered table-striped">
+                <tr ng-repeat="row in $data">
+                    <td title="'序号'" ng-bind="vm.getIndex($index)"></td>
+                    <td title="'角色名称'" ng-bind="row.name"></td>
+                    <td title="'角色说明'" ng-bind="row.memo"></td>
+                    <td title="">
+                        <a class="btn btn-info x_btn" ui-sref="main.role.detail({id: row.id})" ng-disabled="row.deletedAt">
+                            <i class="fa fa-info" aria-hidden="true"></i>
+                            详情
+                        </a>
+                        <a class="btn btn-success x_btn" ui-sref="main.role.edit({id: row.id})" ng-disabled="row.deletedAt" data-permissions="role.edit">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                            编辑
+                        </a>     
+                        <a class="btn btn-danger x_btn" ui-sref="main.role.delete({id: row.id})" ng-disabled="row.deletedAt" data-permissions="role.edit">
+                            <i class="fa fa-remove" aria-hidden="true"></i>
+                            删除
+                        </a>                       
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

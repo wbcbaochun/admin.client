@@ -1,28 +1,6 @@
-// -- bootstrap start --
-$font-size-base: 13px;
-$brand-primary: #5A738E;
-$brand-success: rgba(38,185,154,0.88);
-$brand-info:    rgba(52,152,219,0.88);
-$brand-warning: rgba(243,156,18,0.88);
-$brand-danger: rgba(231,76,60,0.88);
-$body-bg: #F7F7F7;
-$input-border-focus: lighten($brand-primary, 20%);
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-$bootstrap-sass-asset-helper: false;
-// -- bootstrap end --
-// 
-// -- variables start --
-// -- main --
-$main-left-color-bg: darken($brand-primary, 20%);
-$main-left-color: lighten($main-left-color-bg, 80%);
-$side-menu-color: lighten($main-left-color-bg, 60%);
-$header-color-bg: #EDEDED;
-$sidebar-width: 230px;
-// -- button --
-$button-min-width-action: 100px;
-$line-height-default: 20px;
+@import 'variables';
+@import 'reset';
 
-// -- variables end --
 // -- html elements --
 body {
     font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
@@ -157,20 +135,22 @@ body {
 
 .nav.child-menu li {
     padding-left: 36px;
-}
-
-ul.nav.child-menu li:before {
-    background: darken($side-menu-color, 50%);
-    bottom: auto;
-    content: "";
-    height: 8px;
-    left: 23px;
-    margin-top: 15px;
-    position: absolute;
-    right: auto;
-    width: 8px;
-    z-index: 1;
-    border-radius: 50%;
+    &.active:before {
+        background: darken($side-menu-color, 5%);
+    }
+    &:before {
+        background: darken($side-menu-color, 50%);
+        bottom: auto;
+        content: "";
+        height: 8px;
+        left: 23px;
+        margin-top: 15px;
+        position: absolute;
+        right: auto;
+        width: 8px;
+        z-index: 1;
+        border-radius: 50%;
+    }
 }
 
 ul.nav.child-menu li:after {
@@ -221,7 +201,7 @@ ul.nav.child-menu li:after {
     color: #fff;
 }
 
-.nav.side-menu> li.active > a {
+.nav.side-menu > li.active > a {
     text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
     background: linear-gradient(to lighten($main-left-color-bg, 1%), lighten($main-left-color-bg, 2%)), lighten($main-left-color-bg, 2%);
     box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;

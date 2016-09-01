@@ -1,0 +1,73 @@
+<div class="scroll-view" ng-controller="MainSidebarCtrl as vm">
+    <div class="navbar main-left-title">
+        <a href="index.html" class="site-title"><i class="fa fa-paw"></i> <span>XX管理系统</span></a>
+    </div>
+    <div class="clearfix"></div>
+    <!-- menu profile quick info -->
+    <div class="profile">
+        <div class="profile-pic">
+            <img src="images/tmp/img.jpg" alt="..." class="img-circle profile-img">
+        </div>
+        <div class="profile-info">
+            <span>欢迎,</span>
+            <h2>管理员小李</h2>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- /menu profile quick info -->
+    <br />
+    <!-- sidebar menu -->
+    <div id="sidebar-menu" class="main-menu-side hidden-print main-menu">
+        <div class="menu-section">
+            <h3>菜单组1</h3>
+            <ul class="nav side-menu">
+                <li ng-class="{'active':vm.isOpen('user')}">
+                    <a ng-click="vm.clickMenu('user')">
+                        <i class="fa fa-user"></i> 用户管理 <span class="fa fa-chevron-down"></span>
+                    </a>
+                    <ul class="nav child-menu" uib-collapse="!vm.isOpen('user')">
+                        <li ng-class="{'active':vm.activeMenu === 'main.user.list' }" permissions="user.view">
+                            <a ui-sref="main.user.list" ng-click="vm.activeMenu = 'main.user.list'">用户检索</a>
+                        </li>
+                        <li ng-class="{'active':vm.activeMenu === 'main.user.new' }" permissions="user.edit">
+                            <a ui-sref="main.user.new" ng-click="vm.activeMenu = 'main.user.new'">用户添加</a>
+                        </li>                       
+                    </ul>
+                </li>
+            </ul><!-- 用户管理 end -->
+            <ul class="nav side-menu">
+                <li ng-class="{'active':vm.isOpen('role')}">
+                    <a ng-click="vm.clickMenu('role')">
+                        <i class="fa fa-users"></i> 角色管理 <span class="fa fa-chevron-down"></span>
+                    </a>
+                    <ul class="nav child-menu" uib-collapse="!vm.isOpen('role')">
+                        <li ng-class="{'active':vm.activeMenu === 'main.role.list'}" permissions="role.view">
+                            <a ui-sref="main.role.list" ng-click="vm.activeMenu = 'main.role.list'">角色一览</a>
+                        </li>
+                        <li ng-class="{'active':vm.activeMenu === 'main.role.new'}" permissions="user.edit">
+                            <a ui-sref="main.role.new" ng-click="vm.activeMenu = 'main.role.new'">角色添加</a>
+                        </li>                        
+                    </ul>
+                </li>
+            </ul><!-- 角色管理 end -->
+        </div>
+        <div class="menu-section">
+            <h3>菜单组2</h3>
+            <ul class="nav side-menu">
+                <li>
+                    <a ng-click="vm.clickMenu('orther')">
+                        <i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span>
+                    </a>
+                    <ul class="nav child-menu" uib-collapse="!vm.isOpen('orther')">
+                        <li><a href="e_commerce.html">E-commerce</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="project_detail.html">Project Detail</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /sidebar menu -->
+</div>

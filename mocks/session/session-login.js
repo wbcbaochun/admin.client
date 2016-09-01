@@ -13,7 +13,9 @@ module.exports = {
                     userImg: '/tmp/img.jpg',
                     permissions: [
                         'user.view', 
-                        'user.edit'
+                        'user.edit',
+                        'role.view',
+                        'role.edit'
                     ]
                 }
             },

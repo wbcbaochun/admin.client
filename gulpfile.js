@@ -41,7 +41,8 @@ var paths = {
     index: [src + 'index.html'],
     view: [src + 'app/modules/**/*.html'],
     image: [src + 'assets/images/**/*'],
-    style: [src + 'app/styles/app.scss'],
+    style: [src + '**/*/*.scss'],
+    styleApp: [src + 'app/styles/app.scss'],
     script: [src + 'app/**/*.js', src + 'base/**/*.js'],
     scriptApp: src + 'app/app.js',
     mock: ['./mocks/**/*.js']
@@ -194,7 +195,7 @@ var compileSASS = function(filename) {
     if (production) {
         opts.outputStyle = 'compressed';
     }
-    return gulp.src(paths.style)
+    return gulp.src(paths.styleApp)
         .pipe(sourcemaps.init())
         .pipe(sass(opts).on('error', sass.logError))
         .pipe(autoprefixer())
