@@ -1,11 +1,11 @@
 'use strict';
-var bulk = require('bulk-require');
-var filtersModule = angular.module('app.filters', []);
-var filters = bulk(__dirname, ['./**/!(*index|*.spec).js']);
+let bulk = require('bulk-require');
+let filtersModule = angular.module('app.filters', []);
+let filters = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 function declare(filterMap) {
-    for (var key in filterMap) {
-        var item = filterMap[key];
+    for (let key in filterMap) {
+        let item = filterMap[key];
         if (!item) {
             return;
         }

@@ -6,15 +6,15 @@
 function SessionSrv(localStorageService) {
     'ngInject';
 
-    var KEY_CURRENT_USER = 'CURRENT_USER';
+    let KEY_CURRENT_USER = 'CURRENT_USER';
 
-    var _currentUser;
+    let _currentUser;
 
     /**
      * 保存当前用户
      * @param  Object user 当前用户
      */
-    var _saveCurrentUser = function(user) {
+    let _saveCurrentUser = function(user) {
     	if (user) {
     		_currentUser = user;
     		localStorageService.set(KEY_CURRENT_USER, user);
@@ -24,7 +24,7 @@ function SessionSrv(localStorageService) {
     /**
      * 清除当前用户
      */
-    var _clearCurrentUser = function() {
+    let _clearCurrentUser = function() {
     	localStorageService.remove(KEY_CURRENT_USER);
     	_currentUser = null;
     };
@@ -33,7 +33,7 @@ function SessionSrv(localStorageService) {
      * 取得当前用户
      * @result  Object user 当前用户
      */
-    var _getCurrentUser = function() {
+    let _getCurrentUser = function() {
     	if (!_currentUser) {
     		_currentUser = localStorageService.get(KEY_CURRENT_USER);
     	}

@@ -6,7 +6,7 @@
 function SessionLoginCtrl($state, ApiSrv, SessionSrv) {
     'ngInject';
 
-    var vm = this;
+    let vm = this;
 
     // 用户登陆
     vm.login = function() {

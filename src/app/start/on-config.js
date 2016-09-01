@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = require('jquery');
+let $ = require('jquery');
 
 function appConfig($locationProvider,
     $urlRouterProvider,

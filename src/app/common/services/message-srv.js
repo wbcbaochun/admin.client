@@ -3,10 +3,10 @@
 function MessageSrv($q, $uibModal, growl) {
     'ngInject';
     // 确认
-    var _confirm = function(msg) {
-        var d = $q.defer();
+    let _confirm = function(msg) {
+        let d = $q.defer();
 
-        var modalInstance = $uibModal.open({
+        let modalInstance = $uibModal.open({
             template: `<div class="modal-header">
                            <div class="modal-title">确认 </div>
                         </div>
@@ -35,15 +35,15 @@ function MessageSrv($q, $uibModal, growl) {
         return d.promise;
     };
 
-    var _error = function(message) {
+    let _error = function(message) {
         growl.error(message);
     };
 
-    var _info = function(message) {
+    let _info = function(message) {
         growl.info(message);
     };
 
-    var _success = function(message) {
+    let _success = function(message) {
     	growl.success(message);
     };
 

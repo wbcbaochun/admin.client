@@ -1,13 +1,11 @@
 'use strict';
-var angular = require('angular');
-
 const bulk = require('bulk-require');
 const controllersModule = angular.module('app.controllers', []);
 const controllers = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 function declare(controllerMap) {
-    for (var key in controllerMap) {
-        var item = controllerMap[key];
+    for (let key in controllerMap) {
+        let item = controllerMap[key];
 
         if (!item) {
             return;

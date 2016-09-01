@@ -6,13 +6,13 @@
 function MainHeaderCtrl($state, ApiSrv, SessionSrv) {
     'ngInject';
 
-    var vm = this;
+    let vm = this;
 
-    var MAX_MESSAGES = 5;
+    let MAX_MESSAGES = 5;
 
     // TODO: messages
     vm.userMessages = [];
-    for (var i = 1; i <= MAX_MESSAGES; i++) {
+    for (let i = 1; i <= MAX_MESSAGES; i++) {
         vm.userMessages.push({
             userPhoto: 'images/tmp/img.jpg',
             userName: '发信人' + i,

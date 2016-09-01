@@ -1,5 +1,5 @@
 'use strict';
-var AppConfigs = {
+let AppConfigs = {
 	ENV: '${ENV}',
 	API_BASE_URL: '${API.BASE}/api/',
 	USER_TOKEN_KEY: 'x-access-token',

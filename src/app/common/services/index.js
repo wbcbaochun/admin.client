@@ -1,11 +1,11 @@
 'use strict';
-var bulk = require('bulk-require');
-var servicesModule = angular.module('app.services', []);
-var services = bulk(__dirname, ['./**/!(*index|*.spec).js']);
+let bulk = require('bulk-require');
+let servicesModule = angular.module('app.services', []);
+let services = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 function declare(serviceMap) {
-    for (var key in serviceMap) {
-        var item = serviceMap[key];
+    for (let key in serviceMap) {
+        let item = serviceMap[key];
 
         if (!item) {
             return;

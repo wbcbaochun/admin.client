@@ -2,12 +2,12 @@
  * 控制器：主画面左侧边栏
  */
 'use strict';
-var _ = require('lodash');
+let _ = require('lodash');
 
 function MainSidebarCtrl() {
 	'ngInject';
 
-	var vm = this;
+	let vm = this;
 	vm.menus = {};
 
 	/**
@@ -30,7 +30,7 @@ function MainSidebarCtrl() {
 	 * @return {Boolean}      菜单是否打开
 	 */
 	vm.isOpen = function(name) {
-		var menu = vm.menus[name] = (vm.menus[name] || {});
+		let menu = vm.menus[name] = (vm.menus[name] || {});
 		return menu.isOpen;
 	};
 }

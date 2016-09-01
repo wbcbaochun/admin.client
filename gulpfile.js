@@ -213,6 +213,7 @@ gulp.task('sass', function() {
 
 // 打包css
 gulp.task('css-vendor', function() {
+    let filterCss = gulpFilter('**/*.css', { restore: true });
     return gulp.src('./bower.json')
         .pipe(mainBowerFiles({
             overrides: {
@@ -226,6 +227,7 @@ gulp.task('css-vendor', function() {
                 }
             }
         }))
+        .pipe(filterCss)
         .pipe(concat('vendor.css'))
         .pipe(gulp.dest(dest + '/css'));
 })

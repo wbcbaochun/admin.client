@@ -7,7 +7,7 @@ function RoleListCtrl($controller) {
     'ngInject';
 
     // 扩展自list控制器基类
-    var vm = this,
+    let vm = this,
         ctrlOpts = {
             modelName: 'role'
         };

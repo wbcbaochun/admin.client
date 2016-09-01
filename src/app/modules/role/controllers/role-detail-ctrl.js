@@ -6,7 +6,7 @@
 function RoleDetailCtrl($controller) {
     'ngInject';
 
-    var vm = this,
+    let vm = this,
         ctrlOpts = {
             modelName: 'role'
         };

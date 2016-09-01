@@ -1,5 +1,5 @@
 'use strict';
-var MessageList = {
+let MessageList = {
 	'error.system.error': '发生系统错误',
 	'error.required': '请输入{{p0}}。',
 	'error.url': '请输入正确格式的网址!',

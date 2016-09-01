@@ -7,7 +7,7 @@ function UserListCtrl($controller, ApiSrv) {
     'ngInject';
 
     // 扩展自list控制器基类
-    var vm = this,
+    let vm = this,
         ctrlOpts = {
             modelName: 'user'
         };

@@ -1,4 +1,4 @@
-var angular = require('angular');
+require('angular');
 // angular' 3rd part's modules
 require('angular-animate');
 require('angular-ui-router');
@@ -43,7 +43,7 @@ const requires = [
 	'app.modules'
 ];
 
-var app = angular.module('app', requires);
+let app = angular.module('app', requires);
 
 // set config for app
 app.config(require('./start/on-config'));

@@ -5,11 +5,11 @@ function ApiSrv($q, $http, $httpParamSerializer, AppConfigs, MessageSrv) {
     const tokenKey = AppConfigs.USER_TOKEN_KEY;
 
     function exec(url, params, options) {
-        var d = $q.defer();
+        let d = $q.defer();
 
         // prepare request
         options = options || {};
-        var req = {
+        let req = {
             method: options.method || 'POST',
             url: AppConfigs.API_BASE_URL + url,
             data: params

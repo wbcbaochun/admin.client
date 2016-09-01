@@ -1,5 +1,5 @@
 'use strict';
-var CodeList = {
+let CodeList = {
     'deleteFlag': {
         '0': '有效',
         '1': '无效'

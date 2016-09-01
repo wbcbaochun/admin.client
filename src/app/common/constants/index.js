@@ -1,11 +1,11 @@
 'use strict';
-var bulk = require('bulk-require');
-var constantsModule = angular.module('app.constants', []);
-var constants = bulk(__dirname, ['./**/!(*index|*.spec).js']);
+let bulk = require('bulk-require');
+let constantsModule = angular.module('app.constants', []);
+let constants = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 function declare(constantMap) {
-    for (var key in constantMap) {
-        var item = constantMap[key];
+    for (let key in constantMap) {
+        let item = constantMap[key];
 
         if (!item) {
             return;

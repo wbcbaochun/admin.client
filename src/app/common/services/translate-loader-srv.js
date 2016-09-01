@@ -11,7 +11,7 @@ function TranslateLoader($rootScope, $q, MessageList) {
 
 
     function _loader() {
-        var d = $q.defer();
+        let d = $q.defer();
 
         d.resolve(MessageList);
 

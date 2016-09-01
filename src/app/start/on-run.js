@@ -6,7 +6,7 @@
 function OnRun($rootScope, $state, SessionSrv, CodeList) {
 	'ngInject';
 
-	var LOGIN_STATE = 'login';
+	let LOGIN_STATE = 'login';
 
     $rootScope.codelist = CodeList;
 
@@ -15,7 +15,7 @@ function OnRun($rootScope, $state, SessionSrv, CodeList) {
      */
     function _watchStateChange() {
         $rootScope.$on('$stateChangeStart', function(e, toState) {
-            var currentUser = SessionSrv.getCurrentUser();
+            let currentUser = SessionSrv.getCurrentUser();
             if ((!toState.isAnon) && !currentUser && toState.name !== LOGIN_STATE) {
                 e.preventDefault();
                 $state.go(LOGIN_STATE);

@@ -1,5 +1,5 @@
 'use strict';
-var _expression = {
+let _expression = {
     required: function(value) {
         return !!value;
     },
@@ -22,7 +22,7 @@ var _expression = {
     mobilephone: /^[1-9][0-9]{10}$/
 };
 
-var _defaultMsg = {
+let _defaultMsg = {
     required: {
         error: '请输入'
     },
@@ -49,7 +49,7 @@ var _defaultMsg = {
     }
 };
 
-var ValidationRules = {
+let ValidationRules = {
 	expression: _expression,
 	defaultMsg: _defaultMsg
 };

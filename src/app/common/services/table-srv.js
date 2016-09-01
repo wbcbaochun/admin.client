@@ -8,7 +8,7 @@
  */
 'use strict';
 
-var _ = require('lodash');
+let _ = require('lodash');
 const PAGE_PARAM_KEYS = ['page', 'count'];
 
 function TableSrv($location, NgTableParams, ApiSrv) {
@@ -38,10 +38,10 @@ function TableSrv($location, NgTableParams, ApiSrv) {
          */
         create() {
             // 取得数据的处理
-            var getDataDefine = function(extInstance) {
+            let getDataDefine = function(extInstance) {
                 return function(params) {
                     let pageParams = _.pick(params.url(), PAGE_PARAM_KEYS);
-                    var apiParams = angular.merge({}, pageParams, extInstance.opts.searchCondition);
+                    let apiParams = angular.merge({}, pageParams, extInstance.opts.searchCondition);
                     if (!extInstance.firstLoad) {
                         $location.search(apiParams);
                     }

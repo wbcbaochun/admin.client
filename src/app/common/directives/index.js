@@ -1,11 +1,11 @@
 'use strict';
-var bulk = require('bulk-require');
-var directivesModule = angular.module('app.directives', []);
-var directives = bulk(__dirname, ['./**/!(*index|*.spec).js']);
+let bulk = require('bulk-require');
+let directivesModule = angular.module('app.directives', []);
+let directives = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 function declare(directiveMap) {
-    for (var key in directiveMap) {
-        var item = directiveMap[key];
+    for (let key in directiveMap) {
+        let item = directiveMap[key];
 
         if (!item) {
             return;
