@@ -12,8 +12,9 @@ module.exports = {
                 status: 0,
                 result: {
                     id: 1,
-                    name: 'test1',
-                    mail: 'test1@test.com'
+                    name: '管理员',
+                    comment: '整体系统的管理员，\n用户最高权限',
+                    permissions: ['user.view', 'user.edit', 'role.view', 'role.edit']
                 }
             }
         }
