@@ -2,7 +2,6 @@
 /* jshint ignore:start */
 let _ = require('lodash');
 
-
 /**
  * 上传服务
  * 基于7牛实现
@@ -35,7 +34,6 @@ function UploadSrv($rootScope, AppConfigs, MessageSrv) {
         function _getFiles() {
             return this.uploadedFiles;
         }
-
 
         const defaultUpOpts = {
             runtimes: 'html5,flash,html4', //上传模式,依次退化
@@ -74,11 +72,10 @@ function UploadSrv($rootScope, AppConfigs, MessageSrv) {
                 },
                 'UploadComplete': function() {
                         //队列文件处理完毕后,处理相关的事情
-                    }
-                    // 'Key': function(up, file) {
-                    //     // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
-                    //     // 该配置必须要在 unique_names: false , save_key: false 时才生效
-
+                }
+                // 'Key': function(up, file) {
+                //     // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+                //     // 该配置必须要在 unique_names: false , save_key: false 时才生效
                 //     let key = "";
                 //     // do something with key here
                 //     return key
@@ -93,7 +90,7 @@ function UploadSrv($rootScope, AppConfigs, MessageSrv) {
         let uploader = Qiniu.uploader(opts);
         uploader.uploadedFiles = [];
         uploader.getFile = _getFile.bind(uploader);
-        uploader._getFiles = _getFiles.bind(uploader);
+        uploader.getFiles = _getFiles.bind(uploader);
 
         return uploader;
 
