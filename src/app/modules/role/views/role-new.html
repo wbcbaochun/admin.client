@@ -14,14 +14,14 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">角色名： <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="name" class="form-control col-md-7 col-xs-12" max-length="20" ng-model="vm.model.name" validator="required" valid-method="submit">
+                        <input type="text" name="name" class="form-control col-md-7 col-xs-12" max-length="20" ng-model="vm.model.name" validator="required" valid-method="submit" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="memo">角色说明： <span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="memo">角色说明： 
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea name="memo" class="form-control col-md-7 col-xs-12" rows="3" ng-model="vm.model.memo" validator="required" valid-method="submit"></textarea>
+                        <textarea name="memo" class="form-control col-md-7 col-xs-12" rows="3" ng-model="vm.model.memo"></textarea>
                     </div>
                 </div>
             </form>
@@ -33,7 +33,7 @@
         </div>
         <div class="x_content">
             <label class="checkbox-inline col-md-3" ng-repeat="item in vm.permissionList">
-                <input type="checkbox" value="item.name" ng-model="item.selected">{{item.text}}
+                <input type="checkbox" value="item.name" ng-model="item.selected" />{{item.text}}
             </label>          
             <div class="clearfix"></div>
         </div>

@@ -16,7 +16,7 @@ function UserNewCtrl($controller, UploadSrv) {
     
     let ctrlOpts = {
             modelName: 'user',
-            beforeSave: beforeSave
+            beforeSave
         };
     angular.extend(this, $controller('BaseCrudCtrl', { vm: vm, ctrlOpts }));
 

@@ -13,7 +13,7 @@ module.exports = {
                 result: {
                     id: 1,
                     name: '管理员',
-                    comment: '整体系统的管理员，\n用户最高权限',
+                    memo: '整体系统的管理员，\n用户最高权限',
                     permissions: ['user.view', 'user.edit', 'role.view', 'role.edit']
                 }
             }

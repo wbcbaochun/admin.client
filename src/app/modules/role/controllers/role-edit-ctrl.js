@@ -3,28 +3,31 @@
  */
 'use strict';
 
-function RoleEditCtrl($controller, UploadSrv) {
+function RoleEditCtrl($controller, RoleSrv) {
     'ngInject';
 
     let vm = this;
-    let uploader;
 
+    // 取得详情后处理
+    function afterGetDetail(data) {
+        vm.permissionList = RoleSrv.convPermissionForView(data.permissions);
+        return data;
+    }
+
+    // 更新前处理
     function beforeSave() {
-        let photo = uploader.getFile() || null;
-        vm.model.photo = photo;
+        // 编辑权限列表成为字符串数组形式
+        vm.model.permissions = RoleSrv.convPermissionForSave(vm.permissionList);
     }
 
     let ctrlOpts = {
             modelName: 'role',
-            beforeSave: beforeSave
+            afterGetDetail,
+            beforeSave
         };
     angular.extend(this, $controller('BaseCrudCtrl', { vm: vm, ctrlOpts}));
 
     vm.getDetail();
-
-    // 上传组件
-    uploader = UploadSrv.createImageUploader();
-    vm.uploader = uploader;    
 }
 
 module.exports = {

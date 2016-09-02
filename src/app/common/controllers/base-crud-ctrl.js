@@ -11,7 +11,8 @@ const _ = require('lodash');
  * @param {[type]} vm           控制器的value model
  * @param {[type]} ctrlOpts     {
  *                                  modelName,  // 必须 String, 模型的名称 * 
- *                                  beforeSave, // 非必须 function 保存前处理                                  
+ *                                  beforeSave, // 非必须 function 保存前处理 
+ *                                  afterGetDetail, // 非必须 function 取得详情后处理                                 
  *                              }
  */
 function BaseCrudCtrl($window, $state, $stateParams, ApiSrv, vm, ctrlOpts) {
@@ -53,7 +54,11 @@ function BaseCrudCtrl($window, $state, $stateParams, ApiSrv, vm, ctrlOpts) {
     vm.getDetail = function() {
         ApiSrv.exec(ctrlOpts.modelName + '/detail', { id: $stateParams.id })
             .then(function(data) {
-                vm.model = data;
+                if (ctrlOpts.afterGetDetail) {
+                    vm.model = ctrlOpts.afterGetDetail(data);
+                }  else {
+                    vm.model = data;
+                }
             });
     };
 

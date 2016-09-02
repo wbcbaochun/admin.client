@@ -78,7 +78,7 @@
                     <td title="'用户名'" ng-bind="row.name"></td>
                     <td title="'邮箱'" ng-bind="row.mail"></td>
                     <td title="'照片'" width="10%">
-                        <img class="img-responsive" ng-src="{{row.photo | imgView : 150}}">
+                        <img class="img-responsive" ng-src="{{row.photo | imgView : 150}}" />
                     </td>
                     <td title="'状态'" ng-bind="row.deletedAt | deleteFlagText"></td>
                     <td title="">

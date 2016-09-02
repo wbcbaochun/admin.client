@@ -1,49 +1,52 @@
-<div id="user-edit-pg" class="user-pg">
+<div id="role-edit-pg" class="role_pg">
     <div class="page-title">
         <div class="title_left">
-            <h3>用户编辑 画面</h3>
+            <h3>角色编辑 画面</h3>
         </div>
     </div>
     <div class="x_panel">
         <div class="x_title">
-            <h4>用户信息 <small>请填写用户的详细情报</small></h4>
+            <h4>角色信息 <small>请填写角色的详细情报</small></h4>
         </div>
         <div class="x_content">
-            <form id="user-edit-form" class="form-horizontal">
-            	<div class="form-group">
-            	    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">用户ID：</label>
-            	    <div class="col-md-6 col-sm-6 col-xs-12 x_text" ng-bind="vm.model.id">                        
-            	    </div>
-            	</div>               	
+            <form name="roleEditForm" class="form-horizontal" novalidate>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">用户名： <span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">角色ID：</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12 x_text" ng-bind="vm.model.id"></div>
+                </div>                
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">角色名： <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="请输入10位以内的英数字" ng-model="vm.model.name">
+                        <input type="text" name="name" class="form-control col-md-7 col-xs-12" max-length="20" ng-model="vm.model.name" validator="required"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="mail" class="control-label col-md-3 col-sm-3 col-xs-12">邮箱：</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="memo">角色说明： 
+                    </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="mail" id="mail" name="mail" class="form-control col-md-7 col-xs-12" ng-model="vm.model.mail">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="mail" class="control-label col-md-3 col-sm-3 col-xs-12">头像：</label>
-                    <div class="col-sm-9 col-xs-12">
-                        <button id="upload-btn" type="button" class="btn btn-info x_btn" ng-click="vm.upload()">上传</button>
-                        <img class="img-thumbnail" ng-src="{{vm.uploader.getFile()  | imgView : 150}}" ng-show="vm.uploader.getFile()">
-                        <img class="img-thumbnail" ng-src="{{vm.model.photo | imgView : 150}}" ng-show="!vm.uploader.getFile()">                        
-                    </div>
-                </div> 
-                <div class="ln_solid"></div>
-                <div class="form-group btn_action_group">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button type="submit" class="btn btn-primary x_btn" ng-click="vm.save()">确定</button>
-                        <button type="button" class="btn btn-default x_btn" ng-click="vm.back()">取消</button>
+                        <textarea name="memo" class="form-control col-md-7 col-xs-12" rows="3" ng-model="vm.model.memo"></textarea>
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="x_panel permission_list">
+        <div class="x_title">
+            <h4>权限选择 <small>请选择赋予角色的权限</small></h4>
+        </div>
+        <div class="x_content">
+            <label class="checkbox-inline col-md-3" ng-repeat="item in vm.permissionList">
+                <input type="checkbox" value="item.name" ng-model="item.selected"/>{{item.text}}
+            </label>          
+            <div class="clearfix"></div>
+        </div>
+        <div class="ln_solid"></div>
+        <div class="form-group btn_action_group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-primary x_btn" ng-click="vm.save()" validation-submit="roleEditForm">确定</button>
+                <button type="button" class="btn btn-default x_btn" ng-click="vm.back()">取消</button>
+            </div>
         </div>
     </div>
 </div>

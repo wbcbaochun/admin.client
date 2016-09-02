@@ -3,6 +3,7 @@ const _ = require('lodash');
 
 const POSTFIX_CONTROLLER = 'ctrl';
 const POSTFIX_ROUTER = 'routers';
+const POSTFIX_SERVICES = 'srv';
 
 /**
  * 导入文件夹下的所有模块
@@ -33,6 +34,8 @@ function importModule(moduleName, moduleItems) {
 	            appModules.controller(item.name, item.fn);
 	        } else if (catagory === POSTFIX_ROUTER) {
 	            appModules.config(item);
+	        } else if (catagory === POSTFIX_SERVICES) {
+	            appModules.factory(item.name, item.fn);	            
 	        } else {
 	            _declare(appModules, item);
 	        }

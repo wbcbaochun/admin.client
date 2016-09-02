@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">角色说明：</label>
-                    <p class="col-md-6 col-sm-6 col-xs-12 x_text" ng-bind-html="vm.model.comment | textFormat">
+                    <p class="col-md-6 col-sm-6 col-xs-12 x_text" ng-bind-html="vm.model.memo | textFormat">
                     </p>
                 </div>
             </form>
@@ -34,7 +34,7 @@
         </div>
         <div class="x_content">
             <label class="checkbox-inline col-md-3" ng-repeat="item in vm.model.permissions">
-                <input type="checkbox" checked disabled>{{item | codeText:'permission'}}
+                <input type="checkbox" checked disabled />{{item | codeText:'permission'}}
             </label>          
             <div class="clearfix"></div>
         </div>
