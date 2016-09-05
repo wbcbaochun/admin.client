@@ -12,17 +12,27 @@ function permissions(SessionSrv) {
      * [_link description]
      * @param  {[type]} scope [description]
      * @param  {[type]} elem  [description]
-     * @param  {[type]} attrs [permissions: 访问权限]
+     * @param  {String or String Array} attrs [permissions: 访问权限]
      * @return {[type]}       [description]
      */
 	function _link(scope, elem, attrs) {
-		let elePermissions = attrs.permissions;
+		let elePermissions = attrs.permissions.split(',');
+
 		let currentUser = SessionSrv.getCurrentUser();
 		let userPermissions = [];
 		if (currentUser) {
 			userPermissions = currentUser.permissions || [];
 		}
-		let hasPermissions = (userPermissions.indexOf(elePermissions) >= 0);
+
+        let hasPermissions = false;
+        for (let i = 0; i < elePermissions.length; i++) {
+            let p = elePermissions[i].trim();
+            if (userPermissions.indexOf(p) >= 0) {
+                hasPermissions = true;
+                break;
+            }
+        }
+		
 		if (!hasPermissions) {
 			elem.remove();
 		}		

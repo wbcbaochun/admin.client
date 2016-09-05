@@ -20,7 +20,7 @@
     <div id="sidebar-menu" class="main-menu-side hidden-print main-menu">
         <div class="menu-section">
             <h3>菜单组1</h3>
-            <ul class="nav side-menu">
+            <ul class="nav side-menu" permissions="user.view, user.edit">
                 <li ng-class="{'active':vm.isOpen('user')}">
                     <a ng-click="vm.clickMenu('user')">
                         <i class="fa fa-user"></i> 用户管理 <span class="fa fa-chevron-down"></span>
@@ -35,7 +35,7 @@
                     </ul>
                 </li>
             </ul><!-- 用户管理 end -->
-            <ul class="nav side-menu">
+            <ul class="nav side-menu" permissions="role.view, role.edit">
                 <li ng-class="{'active':vm.isOpen('role')}">
                     <a ng-click="vm.clickMenu('role')">
                         <i class="fa fa-users"></i> 角色管理 <span class="fa fa-chevron-down"></span>
