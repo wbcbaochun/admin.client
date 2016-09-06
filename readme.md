@@ -36,6 +36,19 @@
     gulp test
 
 # 常用组件 #
+1. 基本功能库
+	1. [lodash](https://lodash.com/)
+		提供了针对数组，对象等的一些常用扩展方法
+
+1. [ui-bootstrap](https://angular-ui.github.io/bootstrap/)
+	bootstrap js组件的angular版本， 需要翻墙
+
+1. 输入项目验证组件	
+	[angular-validation](https://github.com/huei90/angular-validation)
+
+1. 表格组件
+	[ng-table](https://github.com/esvit/ng-table)
+
 1. 上传组件 
 	1. [七牛JS SDK](http://developer.qiniu.com/code/v6/sdk/javascript.html)
 
