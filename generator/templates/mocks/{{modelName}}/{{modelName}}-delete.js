@@ -1,13 +1,13 @@
 /**
- * mock for 用户删除
+ * mock for {{modelText}}删除
  * @type {Object}
  */
 module.exports = {
-    '/api/user/delete': {
+    '/api/{{modelName}}/delete': {
         POST: {
             data: {
                 status: 0,
-                message: '删除用户成功！'
+                message: '删除{{modelText}}成功！'
             }
         }
     }

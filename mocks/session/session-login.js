@@ -18,7 +18,8 @@ module.exports = {
                         'user.edit',
                         'role.view',
                         'role.edit'
-                    ]
+                    ],
+                    roleId: 1
                 }
             },
             headers: {

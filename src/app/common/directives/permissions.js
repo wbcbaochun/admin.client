@@ -1,4 +1,7 @@
 'use strict';
+
+const ADMIN_ROLE_ID = 1;
+
 /**
  * 权限控制组件
  * 将当前element上需要的权限与用户的权限进行比较， 如果没有访问权限则隐藏
@@ -8,6 +11,10 @@
 function permissions(SessionSrv) {
     'ngInject';
 
+    function _isAdmin(currentUser) {
+        return (currentUser.roleId === ADMIN_ROLE_ID);
+    }
+
     /**
      * [_link description]
      * @param  {[type]} scope [description]
@@ -16,9 +23,12 @@ function permissions(SessionSrv) {
      * @return {[type]}       [description]
      */
 	function _link(scope, elem, attrs) {
-		let elePermissions = attrs.permissions.split(',');
+        let currentUser = SessionSrv.getCurrentUser();
+        if (_isAdmin(currentUser)) {
+            return;
+        }
 
-		let currentUser = SessionSrv.getCurrentUser();
+		let elePermissions = attrs.permissions.split(',');
 		let userPermissions = [];
 		if (currentUser) {
 			userPermissions = currentUser.permissions || [];

@@ -3,7 +3,7 @@
  */
 'use strict';
 
-function {{modelNameUp}}ListCtrl($controller, ApiSrv) {
+function {{modelNameUp}}ListCtrl($controller) {
     'ngInject';
 
     // 扩展自list控制器基类
