@@ -359,3 +359,27 @@ function getNPMPackageIds() {
     let bowerDependencies = _.keys(packageManifest.browser) || [];
     return _.concat(dependencies, bowerDependencies);
 }
+
+// 代码生成
+const nunjucksRender = require('gulp-nunjucks-render');
+const nunjucks = require('nunjucks');
+const genData = require('./generator/data');
+
+gulp.task('gen-clean', function() {
+    return gulp.src('./generator/outputs', { read: false })
+        .pipe(clean({ force: true }));
+});
+
+
+gulp.task('gen', ['gen-clean'], function() {
+    return gulp.src('./generator/templates/**/*')
+        .pipe(nunjucksRender({
+            data: genData,
+            path: ['./generator/templates'],
+            inheritExtension : true
+        }))
+        .pipe(rename(function(path) {
+            path.basename = nunjucks.renderString(path.basename, genData);
+        }))
+        .pipe(gulp.dest('./generator/outputs'));
+});
