@@ -1,8 +1,8 @@
-# 管理后台客户端
+# 关于admin.client #
 基于angularjs的管理后台客户端雏形
 
 
-## 首次安装 ##
+# 首次安装 #
 1. 安装 nodejs
 
 1. 安装 .net framework 45
@@ -24,18 +24,18 @@
 1. 安装 bower 插件 	
 	`bower install`
 
-## 插件更新 ##
+# 插件更新 #
     npm install
 	bower install
 
 # 测试 #
-## 本地浏览器测试 + mock ##
+1. 本地浏览器测试 + mock ##
     gulp
 
-## 本地浏览器测试 + api ##
+1. 本地浏览器测试 + api ##
     gulp test
 
-# 常用组件 #
+## 常用组件 ##
 1. 基本功能库
 	1. [lodash](https://lodash.com/)
 		提供了针对数组，对象等的一些常用扩展方法
