@@ -1,3 +1,5 @@
 {
-	"modelName": "m"
+	"modelName": "photo",
+	"modelNameUp": "Photo",
+	"modelText": "照片"
 }

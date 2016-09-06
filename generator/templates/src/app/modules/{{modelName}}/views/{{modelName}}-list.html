@@ -1,0 +1,70 @@
+<div id="{{modelName}}-list-pg">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>{{modelText}}管理</h3>
+        </div>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h4>检索条件 <small>请输入检索条件</small></h4>
+        </div>
+        <div class="x_content">
+            <form id="{{modelName}}-search-form" class="form-horizontal">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-xs-12" for="name">{{modelText}}名
+                            </label>
+                            <div class="col-md-9 col-xs-12">
+                                <input type="text" name="name" class="form-control" ng-model="vm.searchCondition.name">
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="pull-right">
+                    <button type="button" class="btn btn-primary x_btn" ng-click="vm.search()">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        检索
+                    </button>
+                    <button type="button" class="btn btn-default x_btn" ng-click="vm.reset()">
+                         <i class="fa fa-undo" aria-hidden="true"></i>
+                        重置
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h4>检索结果 
+                <small>检索到的{{modelText}}列表
+                    <a class="btn btn-success pull-right x_btn" ui-sref="main.{{modelName}}.new" data-permissions="{{modelName}}.edit">
+                        <i class="fa fa-plus" aria-hidden="true"></i>新增
+                    </a>
+                </small>
+            </h4>
+        </div>
+        <div class="x_content">
+            <table ng-table="vm.tableParams" class="table table-bordered table-striped">
+                <tr ng-repeat="row in $data">
+                    <td title="'序号'" ng-bind="vm.getIndex($index)"></td>
+                    <td title="'{{modelText}}名'" ng-bind="row.name"></td>
+                    <td title="">
+                        <a class="btn btn-info x_btn" ui-sref="main.{{modelName}}.detail({id: row.id})" ng-disabled="row.deletedAt">
+                            <i class="fa fa-info" aria-hidden="true"></i>
+                            详情
+                        </a>
+                        <a class="btn btn-success x_btn" ui-sref="main.{{modelName}}.edit({id: row.id})" ng-disabled="row.deletedAt" data-permissions="{{modelName}}.edit">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                            编辑
+                        </a>     
+                        <a class="btn btn-danger x_btn" ui-sref="main.{{modelName}}.delete({id: row.id})" ng-disabled="row.deletedAt" data-permissions="{{modelName}}.edit">
+                            <i class="fa fa-remove" aria-hidden="true"></i>
+                            删除
+                        </a>                       
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,12 +1,10 @@
 /**
- * mock for 角色新增
+ * mock for {{modelText}}新增
  * @type {Object}
  *
  * params:
  * {
- * 	name: "操作员", 
- *  memo: "操作员的说明", 
- *  permissions: ["user.edit", "role.edit"]
+ * 	name: "test1", 
  * }
  */
 module.exports = {
@@ -14,7 +12,7 @@ module.exports = {
         POST: {
             data: {
                 status: 0,
-                message: '新增角色成功！'
+                message: '新增{{modelText}}成功！'
             }
         }
     }

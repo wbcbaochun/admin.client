@@ -379,6 +379,7 @@ gulp.task('gen', ['gen-clean'], function() {
             inheritExtension : true
         }))
         .pipe(rename(function(path) {
+            path.dirname = nunjucks.renderString(path.dirname, genData);
             path.basename = nunjucks.renderString(path.basename, genData);
         }))
         .pipe(gulp.dest('./generator/outputs'));
