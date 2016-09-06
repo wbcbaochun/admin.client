@@ -1,6 +1,8 @@
 /**
  * mock for 用户登陆
  * @type {Object}
+ *
+ * params: {name: "user", password: "123456"}
  */
 module.exports = {
     '/api/session/login': {
@@ -9,7 +11,7 @@ module.exports = {
                 status: 0,
                 result: {
                     id: 1,
-                    userName: '管理员小李',
+                    name: '管理员小李',
                     userImg: '/tmp/img.jpg',
                     permissions: [
                         'user.view', 
