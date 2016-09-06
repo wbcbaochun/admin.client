@@ -4,11 +4,12 @@
 'use strict';
 let _ = require('lodash');
 
-function MainSidebarCtrl() {
+function MainSidebarCtrl(SessionSrv) {
 	'ngInject';
 
 	let vm = this;
 	vm.menus = {};
+	vm.currentUser = SessionSrv.getCurrentUser();
 
 	/**
 	 * 点击菜单

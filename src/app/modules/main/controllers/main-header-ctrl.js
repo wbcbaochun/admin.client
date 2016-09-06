@@ -7,6 +7,7 @@ function MainHeaderCtrl($state, ApiSrv, SessionSrv) {
     'ngInject';
 
     let vm = this;
+    vm.currentUser = SessionSrv.getCurrentUser();
 
     let MAX_MESSAGES = 5;
 

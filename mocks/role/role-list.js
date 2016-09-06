@@ -16,13 +16,11 @@ module.exports = {
                     list: [{
                         id: 1,
                         name: '管理员',
-                        memo: '整体系统的管理员， 用户最高权限',
-                        permissions: ['user.view', 'user.edit']
+                        memo: '整体系统的管理员， 用户最高权限'
                     }, {
                         id: 2,
                         name: '操作员',
-                        memo: '只可以操作，不可以变更数据',
-                        permissions: ['user.view']
+                        memo: '只可以操作，不可以变更数据'
                     }]
                 }
             }

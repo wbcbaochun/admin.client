@@ -2,6 +2,9 @@
 /* jshint ignore:start */
 let _ = require('lodash');
 
+require('plupload');
+require('qiniu');
+
 /**
  * 上传服务
  * 基于7牛实现
@@ -54,10 +57,10 @@ function UploadSrv($rootScope, AppConfigs, MessageSrv) {
             auto_start: true, //选择文件后自动上传，若关闭需要自己绑定事件触发上传
             init: {
                 'FilesAdded': function(up, files) {
-                    // plupload.each(files, function(file) {
-                    //     console.log(file);
-                    //     // 文件添加进队列后,处理相关的事情
-                    // });
+                    plupload.each(files, function(file) {
+                        console.log(file);
+                        // 文件添加进队列后,处理相关的事情
+                    });
                 },
                 'BeforeUpload': function(up, file) {
                     // 每个文件上传前,处理相关的事情

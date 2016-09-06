@@ -5,7 +5,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="" uib-dropdown>
                     <a href id="user-profile-dropdown" class="user-profile dropdown-toggle" uib-dropdown-toggle>
-                        <img src="images/tmp/img.jpg" alt="">管理员小李
+                        <img src="images/tmp/img.jpg" alt="">
+                        <span ng-bind="vm.currentUser.name"></span>
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right"
