@@ -3,7 +3,7 @@
  */
 'use strict';
 
-function MainHeaderCtrl($state, ApiSrv, SessionSrv) {
+function MainHeaderCtrl($state, ApiSrv, SessionSrv, MessageSrv) {
     'ngInject';
 
     let vm = this;
@@ -28,11 +28,14 @@ function MainHeaderCtrl($state, ApiSrv, SessionSrv) {
      * 用户登出
      */
     vm.logout = function() {
-        ApiSrv.exec('session/logout')
-            .then(function() {
-            	SessionSrv.clearCurrentUser();
-            	$state.go('login');
-            });
+        function _proc() {
+            ApiSrv.exec('session/logout')
+                .then(function() {
+                    SessionSrv.clearCurrentUser();
+                    $state.go('login');
+                });
+        }
+        MessageSrv.confirm('confirm.logout').then(_proc);
     };
 }
 

@@ -8,7 +8,7 @@ function MessageSrv($q, $uibModal, growl) {
 
         let modalInstance = $uibModal.open({
             template: `<div class="modal-header">
-                           <div class="modal-title">确认 </div>
+                           <div class="modal-title"><strong>确认</strong> </div>
                         </div>
                         <div class="modal-body" translate="{{message}}">
                         </div>
@@ -16,8 +16,8 @@ function MessageSrv($q, $uibModal, growl) {
                             <button class="btn btn-primary" ng-click="$close()">确认</button>
                             <button class="btn btn-default" ng-click="$dismiss()">取消</button>
                         </div>`,             
-            controller: function($scope, msg) {
-                $scope.message = msg;
+            controller: function($scope, message) {
+                $scope.message = message;
             },
             resolve: {
                 message: function() {
