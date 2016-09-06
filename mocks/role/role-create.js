@@ -3,7 +3,11 @@
  * @type {Object}
  *
  * params:
- * {name: "test1", password: "123456", mail: "test1@test.com"}
+ * {
+ * 	name: "操作员", 
+ *  memo: "操作员的说明", 
+ *  permissions: ["user.edit", "role.edit"]
+ * }
  */
 module.exports = {
     '/api/role/create': {
