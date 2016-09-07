@@ -3,6 +3,8 @@
  */
 'use strict';
 
+ const io = require('socket.io-client');
+
 function OnRun($rootScope, $state, SessionSrv, CodeList) {
 	'ngInject';
 
@@ -25,6 +27,14 @@ function OnRun($rootScope, $state, SessionSrv, CodeList) {
 
     // 监听路由状态变化
     _watchStateChange();
+
+    let socket = io.connect('http://127.0.0.1:9005');
+    socket.emit('login', 1); 
+    socket.on('notification', function(data) {
+        console.log('notification');
+        console.log(data);
+    });
+
 }
 
 module.exports = OnRun;
