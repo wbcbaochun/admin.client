@@ -3,7 +3,7 @@
  */
 'use strict';
 
-function MainHeaderCtrl($state, ApiSrv, SessionSrv, MessageSrv) {
+function MainHeaderCtrl($state, $uibModal, ApiSrv, SessionSrv, MessageSrv) {
     'ngInject';
 
     let vm = this;
@@ -24,9 +24,7 @@ function MainHeaderCtrl($state, ApiSrv, SessionSrv, MessageSrv) {
 
     vm.hasMoreUserMessages = true;
 
-    /**
-     * 用户登出
-     */
+    // 用户登出
     vm.logout = function() {
         function _proc() {
             ApiSrv.exec('session/logout')
@@ -36,6 +34,14 @@ function MainHeaderCtrl($state, ApiSrv, SessionSrv, MessageSrv) {
                 });
         }
         MessageSrv.confirm('confirm.logout').then(_proc);
+    };
+
+    // 修改密码
+    vm.changePassword = function() {
+        $uibModal.open({
+            templateUrl: 'user/views/user-changePassword.html',
+            controller: 'UserChangePasswordCtrl as vm'
+        });
     };
 }
 
