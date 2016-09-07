@@ -14,7 +14,7 @@ function UserChangePasswordCtrl($uibModalInstance, ApiSrv) {
             .then(function() {
                 $uibModalInstance.close();
             }); 		
- 	}
+ 	};
 }
 
 module.exports = {
