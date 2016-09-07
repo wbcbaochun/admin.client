@@ -1,16 +1,16 @@
 <div class="login_wrapper">
     <div class="form login_form animated fadeInDown">
         <section class="login_content">
-            <form class="form-horizontal" ng-submit="vm.login()">
+            <form name="loginForm" class="form-horizontal" novalidate>
                 <h1>管理员登陆</h1>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Username" required="" ng-model="vm.user.name"/>
+                <div class="form-group text-left">
+                    <input type="text" name="name" class="form-control" max-length="10" placeholder="请输入用户名" ng-model="vm.user.name" validator="required, alphaNumber" valid-method="submit"/>
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required="" ng-model="vm.user.password" />
+                <div class="form-group text-left">
+                    <input type="password" name="password" class="form-control" max-length="10" placeholder="请输入密码" ng-model="vm.user.password" validator="required, minlength=4" valid-method="submit"/>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary btn-lg">登 陆</button>
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="vm.login()" validation-submit="loginForm">登 陆</button>
                 </div>
                 <div class="clearfix"></div>
             </form>
