@@ -372,7 +372,7 @@ gulp.task('gen-clean', function() {
 gulp.task('gen', ['gen-clean'], function() {
     let dataName = gutil.env.data;
     if (!dataName) {
-        throw '请输入模块名, 例如：gulp gen photo';
+        throw '请输入模块名, 例如：gulp gen --data photo';
     }
     console.log(`开始生成模块${dataName}的代码：`);
 
