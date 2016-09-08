@@ -14,6 +14,8 @@ function SocketSrv($rootScope, AppConfigs, SessionSrv) {
 
     let socket;
 
+    let isDev = (AppConfigs.ENV === 'dev');
+
     function _eventHandles() {
         socket.on('notification', data => {
         	$rootScope.$broadcast('notification', data);
@@ -21,18 +23,35 @@ function SocketSrv($rootScope, AppConfigs, SessionSrv) {
     }
 
     function connect() {
+    	if (isDev) {
+    		return;
+    	}
+
         socket = io.connect(AppConfigs.SOCKET_URL);
         _eventHandles();
     }
 
     function login() {
+    	if (isDev) {
+    		return;
+    	}
+
         let userId = SessionSrv.getCurrentUser().id;
         socket.emit('login', userId);
     }
 
+    function disconnect() {
+    	if (isDev) {
+    		return;
+    	}
+
+    	socket.emit('forceDisconnect');
+    }
+
     return {
         connect,
-        login
+        login,
+        disconnect
     };
 }
 

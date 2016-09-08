@@ -4,11 +4,12 @@
 'use strict';
 
 function MainHeaderCtrl($state, $uibModal, $scope, 
-                        ApiSrv, SessionSrv, MessageSrv) {
+                        ApiSrv, SessionSrv, MessageSrv, SocketSrv) {
     'ngInject';
 
     let vm = this;
     vm.currentUser = SessionSrv.getCurrentUser();
+    vm.unreadMessagesCount = 0;
 
     let MAX_MESSAGES = 5;
 
@@ -28,6 +29,7 @@ function MainHeaderCtrl($state, $uibModal, $scope,
     // 当消息通知到达时， 更新未读消息件数
     $scope.$on('notification', (evnet, count) => {
         vm.unreadMessagesCount = count;
+        $scope.$apply();
     });
 
     // 用户登出
@@ -36,6 +38,7 @@ function MainHeaderCtrl($state, $uibModal, $scope,
             ApiSrv.exec('session/logout')
                 .then(function() {
                     SessionSrv.clearCurrentUser();
+                    SocketSrv.disconnect();
                     $state.go('login');
                 });
         }
