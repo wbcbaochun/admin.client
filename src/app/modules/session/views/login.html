@@ -4,7 +4,7 @@
             <form name="loginForm" class="form-horizontal" novalidate>
                 <h1>管理员登陆</h1>
                 <div class="form-group text-left">
-                    <input type="text" name="name" class="form-control" max-length="10" placeholder="请输入用户名" ng-model="vm.user.name" validator="required, alphaNumber" valid-method="submit"/>
+                    <input type="mail" name="name" class="form-control" max-length="255" placeholder="请输入邮箱地址" ng-model="vm.user.name" validator="required, email" valid-method="submit"/>
                 </div>
                 <div class="form-group text-left">
                     <input type="password" name="password" class="form-control" max-length="10" placeholder="请输入密码" ng-model="vm.user.password" validator="required, minlength=4" valid-method="submit"/>

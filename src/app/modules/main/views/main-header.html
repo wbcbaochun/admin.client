@@ -29,7 +29,7 @@
         <li role="presentation" class="dropdown" uib-dropdown>
             <a href id="user-message-dropdown" class="dropdown-toggle info-number" uib-dropdown-toggle>
                 <i class="fa fa-envelope-o"></i>
-                <span class="badge bg-green" ng-bind="vm.userMessages.length"></span>
+                <span class="badge bg-green" ng-bind="vm.unreadMessagesCount"></span>
             </a>
             <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu" uib-dropdown-menu aria-labelledby="user-message-dropdown">
                 <li ng-repeat="item in vm.userMessages">

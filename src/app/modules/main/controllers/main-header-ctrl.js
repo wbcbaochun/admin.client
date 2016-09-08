@@ -3,7 +3,8 @@
  */
 'use strict';
 
-function MainHeaderCtrl($state, $uibModal, ApiSrv, SessionSrv, MessageSrv) {
+function MainHeaderCtrl($state, $uibModal, $scope, 
+                        ApiSrv, SessionSrv, MessageSrv) {
     'ngInject';
 
     let vm = this;
@@ -23,6 +24,11 @@ function MainHeaderCtrl($state, $uibModal, ApiSrv, SessionSrv, MessageSrv) {
     }
 
     vm.hasMoreUserMessages = true;
+
+    // 当消息通知到达时， 更新未读消息件数
+    $scope.$on('notification', (evnet, count) => {
+        vm.unreadMessagesCount = count;
+    });
 
     // 用户登出
     vm.logout = function() {
