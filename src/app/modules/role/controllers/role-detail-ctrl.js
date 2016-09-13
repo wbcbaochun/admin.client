@@ -11,8 +11,8 @@ function RoleDetailCtrl($controller) {
             modelName: 'role'
         };
     angular.extend(this, $controller('BaseCrudCtrl', { vm: vm, ctrlOpts: ctrlOpts }));
-
    	vm.getDetail();
+    console.log("3:"+vm.model.permissions)
 }
 
 module.exports = {

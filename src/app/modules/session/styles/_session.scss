@@ -70,3 +70,14 @@
 .login_footer {
     animation-delay: 1s;
 }
+.permission_list {
+    .x_content {
+        >.ng-scope {
+            padding: 10px 0 10px;
+            border-bottom: 1px solid #E6E9ED;
+        }
+        >div:nth-last-of-type(2) {
+            border-bottom: none;
+        }
+    }
+}
