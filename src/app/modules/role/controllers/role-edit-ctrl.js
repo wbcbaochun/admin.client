@@ -10,15 +10,8 @@ function RoleEditCtrl($controller, RoleSrv) {
 
     // 取得详情后处理
     function afterGetDetail(data) {
-        //vm.permissionList = RoleSrv.convPermissionForView(data.permissions);
         let temPermissionList = RoleSrv.convPermissionForView(data.permissions);
         vm.permissionList = RoleSrv.convPermissionGroupBy(temPermissionList);
-        //vm.permissionList = [
-        //    {name: "user.view", selected: true, text: "用户查看"},
-        //    {name: "user.edit", selected: true, text: "用户编辑"},
-        //    {name: "role.view", selected: true, text: "角色查看"},
-        //    {name: "role.edit", selected: true, text: "角色编辑"}
-        //];
         return data;
     }
 

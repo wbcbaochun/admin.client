@@ -45,7 +45,7 @@ function RoleSrv(CodeList) {
     	convPermissionForSave,
 		convPermissionGroupBy,
 		convReduceRight,
-		convDetailPermissionGroupBy,
+		convDetailPermissionGroupBy
     };
 }
 
