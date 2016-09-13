@@ -9,6 +9,10 @@ let CodeList = {
     	'user.edit': '用户编辑',
         'role.view': '角色查看',
         'role.edit': '角色编辑'
+    },
+    'type': {
+        'user': '用户',
+        'role': '角色'
     }
 };
 

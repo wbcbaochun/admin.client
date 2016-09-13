@@ -11,18 +11,19 @@ function RoleNewCtrl($controller, RoleSrv) {
     // 更新前处理
     function beforeSave() {
         // 编辑权限列表成为字符串数组形式
-        vm.model.permissions = RoleSrv.convPermissionForSave(vm.permissionList);
+        let temPermissionList01 = RoleSrv.convReduceRight(vm.permissionList);
+        vm.model.permissions = RoleSrv.convPermissionForSave(temPermissionList01);
     }
 
     let ctrlOpts = {
         modelName: 'role',
         beforeSave
     };
-
     angular.extend(this, $controller('BaseCrudCtrl', { vm: vm, ctrlOpts }));
 
     // 编辑权限列表成为画面表示形式
-    vm.permissionList = RoleSrv.convPermissionForView();
+    let temPermissionList = RoleSrv.convPermissionForView();
+    vm.permissionList = RoleSrv.convPermissionGroupBy(temPermissionList);
 }
 
 module.exports = {

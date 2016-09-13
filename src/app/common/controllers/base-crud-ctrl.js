@@ -15,7 +15,7 @@ const _ = require('lodash');
  *                                  afterGetDetail, // 非必须 function 取得详情后处理                                 
  *                              }
  */
-function BaseCrudCtrl($window, $state, $stateParams, ApiSrv, vm, ctrlOpts) {
+function BaseCrudCtrl($window, $state, $stateParams, ApiSrv, vm, ctrlOpts,RoleSrv) {
     'ngInject';
 
 
@@ -56,8 +56,10 @@ function BaseCrudCtrl($window, $state, $stateParams, ApiSrv, vm, ctrlOpts) {
             .then(function(data) {
                 if (ctrlOpts.afterGetDetail) {
                     vm.model = ctrlOpts.afterGetDetail(data);
+                    vm.model.permissions = RoleSrv.convDetailPermissionGroupBy(vm.model.permissions);
                 }  else {
                     vm.model = data;
+                    vm.model.permissions = RoleSrv.convDetailPermissionGroupBy(vm.model.permissions);
                 }
             });
     };
